@@ -1,0 +1,54 @@
+{% include 'base.html' %}
+<style>
+    *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box; 
+        }
+        
+.main{
+    width: 100%;
+    background:  url(static/images/bg.jpg); 
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    width: 30cm;
+}
+</style>
+<!-- **************************************************************************************************************************************************************** -->
+<body>
+  <div class="main"><br><br>
+            <form style="width: 30%; padding: 1cm;  margin-left: 1cm;border-style: solid;border-radius: 20px; border-width: 5px; " action="" method="post"  >
+                <center>
+                <h2 class="bi bi-person">
+                    LOGIN HERE
+                </h2>
+                <tr>
+                    <th>
+                        username:
+                    </th>
+                    <td>
+                        <input style="border-radius: 20px;  padding-left: 0.2cm;" class="input " type="text" name="username">
+                    </td>
+                </tr>
+                <br><br>
+                <tr>
+                    <th>
+                        password:
+                    </th>
+                    <td>
+                        <input style="border-radius: 20px; padding-left: 0.2cm;" type="password" name="password">
+                    </td>
+                </tr>
+                <br><br>
+                <tr>
+                    <input style="background-color: #451952; color: white;" class="btn  w-50" type="submit" name="submit">
+                </tr><br>
+                <label for="" class="me-4"> New user?</label>Register here 
+                <button class="w-100" style="background-color: #451952; border-radius: 20px; "><a style="color: white;text-decoration: none;" href="shopsignup"> New Shop Register</a></button>
+                </center>
+            </form>
+
+  </div>
+</body>
+</html>

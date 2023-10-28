@@ -1,0 +1,43 @@
+{% include 'base.html' %}
+<body>
+    <center>
+        <h1>Products in this shop</h1>
+    <table class="table table-responsive table-bordered border-dark table-hover text-centre w-75 ">
+        <tr class=" table table-dark table-active text-uppercase text-white ">
+            <th class="col">index</th>
+            <th class="col ">
+                Product Name
+            </th>
+            <th class="col">
+                Product details
+            </th>
+            <th class="col">
+                Product Amount
+            </th>
+            <th class="col">
+                Product Image
+            </th>
+        </tr>
+        {% for i in data['view'] %}
+            <tr class=" ">
+                <td class="col">
+                    <strong>{{loop.index}}</strong>
+                </td>
+                <td class="col ">
+                    <strong>{{ i['product_name'] }}</strong>
+                </td>
+                <td class="col ">
+                   <strong> {{ i['details']}}</strong>
+                </td>
+                <td class="col">
+                    <strong>{{ i['price']}}</strong>
+                </td>
+                <td class="col">
+                    <img style="height: 3cm; width: 3cm;" src="{{i['product_image']}}" alt="">
+                </td>
+            </tr>
+            {% endfor %}
+    </table>
+    </center>
+</body>
+</html>

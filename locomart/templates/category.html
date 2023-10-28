@@ -1,0 +1,67 @@
+{% include 'base.html' %}
+<body><a style="background-color: #32004A; color: #f39f5a;" class="btn mt-3 ms-3 bi bi-arrow-left-circle me-3" href="adminindex">  back</a>
+    <center>
+       <h1>CATEGORY PAGE</h1>
+        {% if data['up'] %}
+        <form method="post">
+            <table class="table table-responsive table-bordered border-dark table-hover text-centre w-75" >
+                <tr class="table table-active text-uppercase text-white">
+                    <th style="background-color: #32004A; color: #f39f5a;">
+                        Category Name:
+                    </th>
+                    <td style="background-color: #32004A; color: #f39f5a;">
+                        <input class="w-100" type="text" name="category_name"  value="{{data['up'][0]['category_name']}}" placeholder="Category name">
+                    </td>
+                </tr>
+            </table>
+            <input style="background-color: #32004A; color: #f39f5a;" class="btn" type="submit" name="update" value="update">
+        </form>
+    {% else %}
+        <form method="post">
+            <table class=" table table-responsive table-bordered border-dark table-hover text-centre w-75 rounded rounded-4" >
+                <tr class="table table-active text-uppercase text-white ">
+                    <th style="background-color: #32004A; color: #f39f5a;">
+                        Category Name
+                    </th>
+                    <td style="background-color: #32004A; color: #f39f5a;">
+                        <input class="form-text w-100" type="text" name="category_name" placeholder="Category name">
+                    </td>
+                </tr>
+            </table>
+            <input style="background-color: #32004A; color: #f39f5a;" class="btn " type="submit" name="submit" value="submit">
+         </form>
+    {% endif %}
+        <form action="" method="post">
+<hr>
+         <table class=" table table-responsive table-bordered border-dark table-hover text-centre w-75 ">
+            <tr class="table  table-active text-uppercase text-white">
+                <th style="background-color: #32004A; color: #f39f5a;">
+                    category name
+                </th>
+                <th style="background-color: #32004A; color: #f39f5a;">
+                    UPDATE
+                </th>
+                <th style="background-color: #32004A; color: #f39f5a;">
+                    REMOVE
+                </th>
+            </tr>
+                {% for i in data['catview'] %}
+                <tr>
+                    <td>
+                        {{i['category_name']}} 
+                    </td>
+                    <td>
+                        <a href="?action=update&category_id={{i['category_id']}}">update</a>
+                    </td>
+                    <td>
+                        <a href="?action=delete&category_id={{i['category_id']}}">delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </form>
+    </center>
+</body>
+</html>
+
+

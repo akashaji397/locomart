@@ -1,0 +1,50 @@
+{% include 'base.html' %}
+<body>
+    <center>
+        <h1>Customers viewed here</h1>
+    <hr>
+    <table class="table table-responsive table-bordered border-dark table-hover text-centre w-75 " style="align-items: center;">
+        <tr class="table table-active text-uppercase text-white ">
+            <th style="background-color: #32004A; color: #f39f5a;">index</th>
+            <th style="background-color: #32004A; color: #f39f5a;">
+                Customer Name
+            </th>
+            <th style="background-color: #32004A; color: #f39f5a;">
+                Address
+            </th>
+            <th style="background-color: #32004A; color: #f39f5a;">
+                Place
+            </th>
+            <th style="background-color: #32004A; color: #f39f5a;">
+                Phone
+            </th>
+            <th style="background-color: #32004A; color: #f39f5a;">
+                Email id
+            </th>
+        </tr>
+        {% for i in data['view'] %}
+            <tr class="">
+                <td class="col">
+                    <strong>{{loop.index}}</strong>
+                </td>
+                <td class="col ">
+                    <strong>{{ i['first_name'] }}</strong>
+                </td>
+                <td class="col ">
+                    <strong>{{ i['house_name']}}</strong>
+                </td>
+                <td class="col ">
+                    <strong>{{ i['place'] }}</strong>
+                </td>
+                <td class="col ">
+                    <strong>{{ i['phone']}}</strong>
+                </td>
+                <td class="col ">
+                    <strong>{{ i['email']}}</strong>
+                </td>
+            </tr>
+            {% endfor %}
+    </table>
+    </center>
+</body>
+</html>

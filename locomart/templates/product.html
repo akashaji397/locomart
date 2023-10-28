@@ -1,0 +1,182 @@
+{% include 'base.html' %}
+<body>
+    <center>
+        {% if data['up'] %}
+        <form action="" method="post" enctype="multipart/form-data">
+            <h1>Shopkeepers homepage</h1> 
+            <hr>
+            <table class="border border-primary border-5">
+                <tr>
+                    <th>
+                        Product name:
+                    </th>
+                    <td>
+                        <input class="w-100" type="text" name="product_name" value="{{data['up'][0]['product_name']}}">
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Product details:
+                    </th>
+                    <td>
+                        <input class="w-100" type="text" name="product_details"  value="{{data['up'][0]['details']}} ">
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Product rate:
+                    </th>
+                    <td>
+                        <input class="w-100" type="text" name="product_rate" value="{{data['up'][0]['price']}}">
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Product image:
+                    </th>
+                    <td>
+                        <input class="w-100 btn btn-primary" type="file" placeholder="product image" name="img" value="{{data['up'][0]['image']}}">
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Category:
+                    </th>
+                    <td>
+                        <select class="w-100" name="drop" id="">
+                            {% for i in data['catview']%}
+                            <option value="{{i['category_id']}}">{{i['category_name']}}</option>
+                            {% endfor %}
+                        </select>
+                    </td>         
+        </table><br>
+        <input class="btn btn-primary" type="submit" name="update" value="update"></tr>
+        </form>
+        {% else %}
+        <form class="" action="" method="post" enctype="multipart/form-data">
+            <h1>Shopkeepers homepage</h1> 
+            <hr>
+            <table class=" border border-primary border-5 ">
+                <div class="">
+                    <tr>
+                        <th>
+                            Product name:
+                        </th>
+                        <td>
+                            <input class="w-100" type="text" name="product_name">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Product details:
+                        </th>
+                        <td>
+                            <input class="w-100" type="text" name="product_details">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Product rate:
+                        </th>
+                        <td>
+                            <input class="w-100" type="text" name="product_rate">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Product image:
+                        </th>
+                        <td>
+                            <input class="w-100 btn btn-primary bi bi-file-earmark-image" type="file" placeholder="product image" name="img">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Category:
+                        </th>
+                        <td>
+                            <select class="w-100" name="drop" id="">
+                                {% for i in data['catview']%}
+                                <option value="{{i['category_id']}}">{{i['category_name']}}</option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Product quantity:
+                        </th>
+                        <td>
+                            <input class="w-100" type="number" name="product_quantity">
+                        </td>
+                    </tr>
+                </div>
+            </table>
+            <br>
+            <tr>
+                <input class="btn btn-primary" type="submit" name="submit" value="submit">
+            </tr>
+        </form>
+        {% endif %}
+        <h1>Added products</h1>
+        <hr>
+        <br>
+        <table border="1">
+            <tr class="row">
+                <th class="col">index</th>
+                <th class="col">
+                    Product Name
+                </th>
+                <th class="col">
+                    Product details
+                </th>
+                <th class="col">
+                    Product Amount
+                </th>
+                <th class="col">
+                    Category name
+                </th>
+                <th class="col">
+                    product Image
+                </th>
+                <th class="col">
+                    product quantity
+                </th>
+                <th class="col">
+                    update
+                </th>
+                
+           
+            </tr>
+            {% for v in data['view'] %}
+            <tr class="row">
+                <td class="col">{{loop.index}}</td>
+                <td class="col">
+                    {{v['product_name']}}
+                </td>
+                <td class="col">
+                    {{v['details']}}
+                </td>
+                <td class="col">
+                    {{v['price']}}
+                </td>
+                <td class="col">
+                    {{v['category_name']}}
+                </td>
+                <td class="col">
+                    <img src="{{v['product_image']}}" alt="pending.." style="height: 4cm; width: 4cm;" >
+                </td>
+                <td class="col">
+                    {{v['product_quantity']}}
+                </td>
+                <td class="col">
+                    <a href="?action=update&product_id={{v['product_id']}}">update</a>
+                    <a href="?action=delete&product_id={{v['product_id']}}">Delete</a>
+                </td>
+                
+            </tr>
+            {% endfor %}
+        </table>
+    </center>
+</body>
+</html>
